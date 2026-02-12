@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Winter Draw', cursive;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Fondo blur + ambient occlusion */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #ffe6f0 0%, #ffc1dd 40%, #ff9fc9 70%, #ff7eb8 100%);
+  filter: blur(40px);
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.12) 100%);
+  z-index: -1;
+}
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  padding: 40px 50px;
+  border-radius: 35px;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(255, 105, 180, 0.4);
+  max-width: 420px;
+}
+
+.top-gif {
+  width: 130px;
+  margin-bottom: 10px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.bow {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  color: #ff5fa2;
+  margin-bottom: 25px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+button {
+  padding: 12px 26px;
+  border: none;
+  border-radius: 22px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#yes {
+  background: #ff8fc7;
+  color: white;
+}
+
+#no {
+  background: #ffd1e6;
+  color: #ff5fa2;
+  position: relative;
+}
+
+.final {
+  text-align: center;
+}
+
+.final img {
+  width: 200px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Texto del link final */
+.reveal {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #ff5fa2;
+  cursor: pointer;
+  text-decoration: underline;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Corazones flotando */
+.hearts span {
+  position: absolute;
+  bottom: -60px;
+  font-size: 28px;
+  filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
+  animation: rise linear infinite;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
